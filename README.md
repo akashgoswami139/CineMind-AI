@@ -93,7 +93,7 @@ Movie-Recommender/
 ### Clone the repository
 
 ```bash
-git clone https://github.com/your-username/cinemind-ai.git
+git clone https://github.com/akashgoswami139/cinemind-ai.git
 ```
 
 ### Navigate to the project
@@ -186,11 +186,3 @@ pip install -r requirements.txt
 
 - GitHub: https://github.com/akashgoswami139
 - LinkedIn: https://www.linkedin.com/in/akashgoswami-/
-
----
-
-## ⭐ Support
-
-If you found this project useful, consider giving it a ⭐ on GitHub.
-
-It helps others discover the project and motivates further improvements.
