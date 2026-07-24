@@ -7,7 +7,7 @@ CineMind AI is a modern **content-based movie recommendation system** built usin
 ## 🚀 Live Demo
 
 
-
+https://cinemind-ai-akash.streamlit.app/
 ---
 
 
