@@ -1,0 +1,248 @@
+/* ==========================================================================
+   CineMind AI -- Global Theme
+   Dark glassmorphism, gradients, and micro-animations.
+   ========================================================================== */
+
+:root {
+  --bg: #09090B;
+  --surface: #0F0F12;
+  --card: #18181B;
+  --card-border: rgba(255, 255, 255, 0.08);
+  --primary: #6366F1;
+  --primary-soft: #818CF8;
+  --accent: #06B6D4;
+  --success: #10B981;
+  --danger: #EF4444;
+  --warning: #F59E0B;
+  --text: #FAFAFA;
+  --text-muted: #A1A1AA;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Poppins:wght@600;700;800&display=swap');
+
+html, body, [class*="css"] {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+.stApp {
+  background:
+    radial-gradient(circle at 15% 0%, rgba(99, 102, 241, 0.12), transparent 40%),
+    radial-gradient(circle at 85% 20%, rgba(6, 182, 212, 0.10), transparent 45%),
+    var(--bg);
+  color: var(--text);
+}
+
+/* ---- Custom scrollbar ---- */
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, var(--primary), var(--accent));
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover { background: var(--primary-soft); }
+
+/* ---- Hide default chrome ---- */
+#MainMenu { visibility: hidden; }
+footer { visibility: hidden; }
+header[data-testid="stHeader"] { background: transparent; }
+
+/* ---- Sidebar ---- */
+section[data-testid="stSidebar"] {
+  background: rgba(15, 15, 18, 0.85);
+  backdrop-filter: blur(18px);
+  border-right: 1px solid var(--card-border);
+}
+section[data-testid="stSidebar"] .stMarkdown h1,
+section[data-testid="stSidebar"] .stMarkdown h2,
+section[data-testid="stSidebar"] .stMarkdown h3 {
+  color: var(--text);
+}
+
+/* ---- Headings ---- */
+h1, h2, h3 { font-family: 'Poppins', sans-serif; letter-spacing: -0.02em; }
+
+.gradient-text {
+  background: linear-gradient(90deg, var(--primary), var(--accent));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ---- Hero ---- */
+.hero-wrap {
+  position: relative;
+  padding: 64px 40px;
+  border-radius: 28px;
+  overflow: hidden;
+  background: linear-gradient(145deg, rgba(99,102,241,0.18), rgba(6,182,212,0.10));
+  border: 1px solid var(--card-border);
+  text-align: center;
+  animation: fadeIn 0.8s ease;
+}
+.hero-wrap::before {
+  content: "";
+  position: absolute; inset: 0;
+  background: radial-gradient(circle at 50% -10%, rgba(255,255,255,0.10), transparent 60%);
+  pointer-events: none;
+}
+.hero-title {
+  font-family: 'Poppins', sans-serif;
+  font-size: 3.2rem;
+  font-weight: 800;
+  margin-bottom: 6px;
+  animation: slideUp 0.7s ease;
+}
+.hero-subtitle {
+  font-size: 1.15rem;
+  color: var(--text-muted);
+  max-width: 620px;
+  margin: 0 auto 28px auto;
+  animation: slideUp 0.9s ease;
+}
+
+/* ---- Glass card (generic) ---- */
+.glass-card {
+  background: rgba(24, 24, 27, 0.6);
+  backdrop-filter: blur(14px);
+  border: 1px solid var(--card-border);
+  border-radius: 20px;
+  padding: 22px;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+.glass-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 18px 40px rgba(99, 102, 241, 0.25);
+  border-color: rgba(99, 102, 241, 0.45);
+}
+
+/* ---- Movie card ---- */
+.movie-card {
+  position: relative;
+  background: linear-gradient(160deg, rgba(24,24,27,0.9), rgba(24,24,27,0.55));
+  border-radius: 18px;
+  border: 1px solid var(--card-border);
+  padding: 12px;
+  transition: transform 0.3s cubic-bezier(.2,.8,.2,1), box-shadow 0.3s ease, border-color 0.3s ease;
+  animation: fadeIn 0.6s ease;
+}
+.movie-card:hover {
+  transform: translateY(-8px) scale(1.015);
+  box-shadow: 0 20px 45px rgba(6, 182, 212, 0.28);
+  border-image: linear-gradient(135deg, var(--primary), var(--accent)) 1;
+  border-color: var(--accent);
+}
+.movie-poster-wrap { overflow: hidden; border-radius: 14px; }
+.movie-poster-wrap img {
+  width: 100%; display: block;
+  transition: transform 0.45s ease;
+}
+.movie-card:hover .movie-poster-wrap img { transform: scale(1.08); }
+
+.movie-title {
+  font-weight: 700; font-size: 1.02rem; margin: 10px 0 2px 0;
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
+.movie-meta { color: var(--text-muted); font-size: 0.82rem; margin-bottom: 6px; }
+
+.badge {
+  display: inline-block;
+  padding: 3px 10px;
+  border-radius: 999px;
+  font-size: 0.72rem;
+  font-weight: 600;
+  margin: 2px 4px 2px 0;
+}
+.badge-rating { background: rgba(16,185,129,0.15); color: var(--success); }
+.badge-similarity { background: rgba(99,102,241,0.18); color: var(--primary-soft); }
+.badge-genre { background: rgba(6,182,212,0.14); color: var(--accent); }
+
+/* ---- Stat cards ---- */
+.stat-card {
+  text-align: center;
+  padding: 26px 10px;
+  border-radius: 18px;
+  background: rgba(24,24,27,0.55);
+  border: 1px solid var(--card-border);
+  backdrop-filter: blur(10px);
+  transition: transform 0.25s ease;
+}
+.stat-card:hover { transform: translateY(-5px); }
+.stat-number {
+  font-family: 'Poppins', sans-serif;
+  font-size: 2.1rem; font-weight: 800;
+  background: linear-gradient(90deg, var(--primary), var(--accent));
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+}
+.stat-label { color: var(--text-muted); font-size: 0.85rem; margin-top: 4px; }
+
+/* ---- Buttons ---- */
+.stButton > button, .stDownloadButton > button {
+  background: linear-gradient(90deg, var(--primary), var(--accent));
+  color: white; border: none; border-radius: 12px;
+  font-weight: 600; padding: 0.6rem 1.4rem;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
+  box-shadow: 0 6px 18px rgba(99,102,241,0.25);
+}
+.stButton > button:hover, .stDownloadButton > button:hover {
+  transform: translateY(-2px) scale(1.02);
+  filter: brightness(1.08);
+  box-shadow: 0 10px 26px rgba(6,182,212,0.35);
+}
+.stButton > button:active { transform: translateY(0) scale(0.98); }
+
+/* ---- Inputs ---- */
+.stTextInput input, .stSelectbox > div, div[data-baseweb="select"] > div {
+  background-color: var(--card) !important;
+  border-radius: 12px !important;
+  border: 1px solid var(--card-border) !important;
+  color: var(--text) !important;
+}
+
+/* ---- Footer ---- */
+.app-footer {
+  margin-top: 48px;
+  padding: 28px 10px;
+  text-align: center;
+  color: var(--text-muted);
+  border-top: 1px solid var(--card-border);
+  font-size: 0.85rem;
+}
+.footer-links a {
+  color: var(--text-muted);
+  text-decoration: none;
+  margin: 0 10px;
+  font-weight: 600;
+  transition: color 0.2s ease;
+}
+.footer-links a:hover { color: var(--accent); }
+
+/* ---- Loading shimmer ---- */
+.shimmer {
+  background: linear-gradient(90deg, rgba(255,255,255,0.03) 25%, rgba(255,255,255,0.09) 37%, rgba(255,255,255,0.03) 63%);
+  background-size: 400% 100%;
+  animation: shimmer 1.4s ease infinite;
+  border-radius: 14px;
+}
+
+/* ---- Section divider ---- */
+.section-title {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  font-size: 1.5rem;
+  margin: 8px 0 18px 0;
+  display: flex; align-items: center; gap: 10px;
+}
+.section-title .bar {
+  width: 6px; height: 24px; border-radius: 4px;
+  background: linear-gradient(180deg, var(--primary), var(--accent));
+}
+
+/* ---- Keyframes ---- */
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+@keyframes slideUp { from { opacity: 0; transform: translateY(18px);} to { opacity: 1; transform: translateY(0);} }
+@keyframes shimmer { 0% { background-position: 100% 0; } 100% { background-position: 0 0; } }
+
+@media (max-width: 640px) {
+  .hero-title { font-size: 2.1rem; }
+  .hero-subtitle { font-size: 1rem; }
+}
