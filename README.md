@@ -186,3 +186,4 @@ pip install -r requirements.txt
 
 - GitHub: https://github.com/akashgoswami139
 - LinkedIn: https://www.linkedin.com/in/akashgoswami-/
+- X: https://x.com/akashgoswami144
