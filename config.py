@@ -5,6 +5,9 @@ Holds theme tokens, file paths, and TMDB API settings.
 
 import os
 from pathlib import Path
+from dotenv import load_dotenv
+
+load_dotenv()
 
 # --------------------------------------------------------------------------
 # Paths
@@ -22,7 +25,7 @@ STYLE_CSS = ASSETS_DIR / "style.css"
 # --------------------------------------------------------------------------
 # Preferred: set via environment variable or .streamlit/secrets.toml.
 # Falls back to the key below so the app works out of the box.
-DEFAULT_TMDB_API_KEY = "8a4a4ec78cb4d519f1962e230ebcee86"
+# DEFAULT_TMDB_API_KEY = "8a4a4ec78cb4d519f1962e230ebcee86"
 
 
 def _get_tmdb_key() -> str:
